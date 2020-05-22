@@ -37,10 +37,24 @@ class TestRoom < Minitest::Test
     def test_room_can_check_out_a_guest
         @Guest1 = Guest.new("Peter", 250)
         @Guest2 = Guest.new("Paul", 550)
+        @Guest3 = Guest.new("Pete", 750)
         @Room.check_in_guest(@Guest1)
         @Room.check_in_guest(@Guest2)   
+        @Room.check_in_guest(@Guest3)  
         @Room.check_out_guest(@Guest2)    
-        assert_equal(1, @Room.guest_count())
+        assert_equal(2, @Room.guest_count())
+    end
+
+    def test_room_is_full
+        @Guest1 = Guest.new("Peter", 250)
+        @Guest2 = Guest.new("Paul", 550)
+        @Guest3 = Guest.new("Luke", 650)
+        @Guest4 = Guest.new("John", 750)
+        @Room.check_in_guest(@Guest1)
+        @Room.check_in_guest(@Guest2)   
+        @Room.check_in_guest(@Guest3)
+        @Room.check_in_guest(@Guest4)
+        assert_equal("Too many guests!", @Room.guest_count)
     end
 
 end

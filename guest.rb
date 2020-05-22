@@ -7,10 +7,9 @@ class Guest
         @wallet = wallet
     end
 
-    # def take_from_wallet(money)
-    #     @wallet -= money
-
-    # end
+     def take_from_wallet(money)
+         @wallet -= money
+    end
 
     # def consume_drink(drink_name, pub)
     #     price = pub.get_price_of_drink_by_name(drink_name)

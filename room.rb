@@ -23,11 +23,15 @@ class Room
     end
 
     def check_in_guest(guest_name)
-        return @guests << guest_name
+            return @guests << guest_name
     end
 
     def guest_count
-        return @guests.count
+        if @guests.count < 4
+            return @guests.count
+        else 
+            return "Too many guests!"
+        end
     end
 
     def check_out_guest(guest_name)
