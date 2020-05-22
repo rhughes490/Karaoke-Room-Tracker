@@ -1,14 +1,22 @@
 class Guest
 
-    attr_reader :name, :wallet
+    attr_reader :name, :wallet, :favourite_song
     
-    def initialize(name, wallet)
+    def initialize(name, wallet, favourite_song)
         @name = name
         @wallet = wallet
+        @favourite_song = favourite_song
     end
 
      def take_from_wallet(money)
          @wallet -= money
+    end
+
+    def check_favourite_song(favourite_song)
+            for song in favourite_songs
+             if @Guest.favourite_song == favourite_song
+                 return "Whoo!"
+             end
     end
 
     # def consume_drink(drink_name, pub)
