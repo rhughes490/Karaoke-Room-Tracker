@@ -15,7 +15,7 @@ class TestRoom < Minitest::Test
         @Song2 = Song.new(:Gambler)
         @Song3 = Song.new(:Always)
         @Song4 = Song.new(:Imagine)
-        @Room = Room.new("Room1", 10000)
+        @Room = Room.new("Room1", 1000)
     
     end
 
@@ -29,15 +29,15 @@ class TestRoom < Minitest::Test
      end
 
      def test_room_can_check_in_a_guest
-        @Guest1 = Guest.new("Peter", 250)
+        @Guest1 = Guest.new("Peter", 250, :Wonderwall)
         @Room.check_in_guest(@Guest1)
         assert_equal(1, @Room.guest_count())
     end
 
     def test_room_can_check_out_a_guest
-        @Guest1 = Guest.new("Peter", 250)
-        @Guest2 = Guest.new("Paul", 550)
-        @Guest3 = Guest.new("Pete", 750)
+        @Guest1 = Guest.new("Peter", 250, :Always)
+        @Guest2 = Guest.new("Paul", 550, :Gambler)
+        @Guest3 = Guest.new("Pete", 750, :Imagine)
         @Room.check_in_guest(@Guest1)
         @Room.check_in_guest(@Guest2)   
         @Room.check_in_guest(@Guest3)  
@@ -46,10 +46,10 @@ class TestRoom < Minitest::Test
     end
 
     def test_room_is_full
-        @Guest1 = Guest.new("Peter", 250)
-        @Guest2 = Guest.new("Paul", 550)
-        @Guest3 = Guest.new("Luke", 650)
-        @Guest4 = Guest.new("John", 750)
+        @Guest1 = Guest.new("Peter", 250, :Always)
+        @Guest2 = Guest.new("Paul", 550, :Gambler)
+        @Guest3 = Guest.new("Luke", 650, :Always)
+        @Guest4 = Guest.new("John", 750, :Imagine)
         @Room.check_in_guest(@Guest1)
         @Room.check_in_guest(@Guest2)   
         @Room.check_in_guest(@Guest3)

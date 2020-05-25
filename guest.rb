@@ -8,23 +8,14 @@ class Guest
         @favourite_song = favourite_song
     end
 
-     def take_from_wallet(money)
+     def buy_a_song(money)
          @wallet -= money
     end
 
-    def check_favourite_song(favourite_song)
-            for song in favourite_songs
-             if @Guest.favourite_song == favourite_song
-                 return "Whoo!"
-             end
+    def check_favourite_song(song_in_playlist)
+                if @Guest.favourite_song == song_in_playlist
+                    return "Whoo!"
+                end
     end
-
-    # def consume_drink(drink_name, pub)
-    #     price = pub.get_price_of_drink_by_name(drink_name)
-    #     if price <= @wallet
-    #         pub.make_purchase(drink_name)
-    #         take_from_wallet(price)
-    #     end
-
 
 end
